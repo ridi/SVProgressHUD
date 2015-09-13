@@ -346,7 +346,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     BOOL progressUsed = (self.progress != SVProgressHUDUndefinedProgress) && (self.progress >= 0.0f);
     
     if(string) {
-        CGSize constraintSize = CGSizeMake(200.0f, 300.0f);
+        CGSize constraintSize = CGSizeMake(240.0f, 300.0f);
         CGRect stringRect;
         if ([string respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
             stringRect = [string boundingRectWithSize:constraintSize
@@ -373,18 +373,13 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         } else {
             hudHeight = stringHeightBuffer + stringHeight;
         }
-        if(stringWidth > hudWidth){
-            hudWidth = ceil(stringWidth/2) * 2;
+        if (stringWidth > hudWidth){
+            hudWidth = ceil(stringWidth / 2) * 2;
         }
         
         CGFloat labelRectY = (imageUsed || progressUsed) ? 68.0f : 9.0f;
-        if(hudHeight > 100.0f) {
-            labelRect = CGRectMake(12.0f, labelRectY, hudWidth, stringHeight);
-            hudWidth += 24.0f;
-        } else {
-            hudWidth += 24.0f;
-            labelRect = CGRectMake(0.0f, labelRectY, hudWidth, stringHeight);
-        }
+        labelRect = CGRectMake(12.0f, labelRectY, hudWidth, stringHeight);
+        hudWidth += 24.0f;
     }
     self.hudView.bounds = CGRectMake(0.0f, 0.0f, hudWidth, hudHeight);
     
