@@ -437,25 +437,12 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
         CGFloat labelWidth = ceilf(CGRectGetWidth(labelRect));
         
         if(imageUsed || progressUsed) {
-<<<<<<< HEAD
-            hudHeight = stringAndContentHeightBuffer + stringHeight;
-        } else {
-            hudHeight = stringHeightBuffer + stringHeight;
-        }
-        if(stringWidth > hudWidth) {
-            hudWidth = ceilf(stringWidth/2)*2;
-        }
-        CGFloat labelRectY = (imageUsed || progressUsed) ? 68.0f : 9.0f;
-        labelRect = CGRectMake(12.0f, labelRectY, hudWidth, stringHeight);
-        hudWidth += 24.0f;
-=======
             CGFloat contentHeight = (imageUsed ? CGRectGetHeight(self.imageView.frame) : CGRectGetHeight(self.indefiniteAnimatedView.frame));
             hudHeight = verticalSpacing + contentHeight + progressLabelSpacing + labelHeight + verticalSpacing;
         } else {
             hudHeight = verticalSpacing + labelHeight + verticalSpacing;
         }
         hudWidth = labelWidth;
->>>>>>> 78fd5de1b65855269a5332e87626c9f7b4b11c7f
     }
     
     // Update values on subviews
