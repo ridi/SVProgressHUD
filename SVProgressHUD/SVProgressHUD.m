@@ -447,7 +447,8 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
             }
             labelRect = CGRectMake(0.0f, 0.0f, stringSize.width, stringSize.height);
         }
-        labelRect.size.width = MAX(self.minimumSize.width, horizontalSpacing + CGRectGetWidth(labelRect) + horizontalSpacing);
+        labelRect.size.width = MAX(self.minimumSize.width, CGRectGetWidth(labelRect));
+        labelRect.origin.x = horizontalSpacing;
         
         CGFloat labelHeight = ceilf(CGRectGetHeight(labelRect));
         CGFloat labelWidth = ceilf(CGRectGetWidth(labelRect));
@@ -458,7 +459,7 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
         } else {
             hudHeight = verticalSpacing + labelHeight + verticalSpacing;
         }
-        hudWidth = labelWidth;
+        hudWidth = horizontalSpacing + labelWidth + horizontalSpacing;
     }
     
     // Update values on subviews
@@ -490,7 +491,8 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     if(imageUsed || progressUsed){
         labelRect.origin.y = (imageUsed ? CGRectGetMaxY(self.imageView.frame) : CGRectGetMaxY(self.indefiniteAnimatedView.frame)) + progressLabelSpacing;
     } else {
-        labelRect.origin.y = verticalSpacing;
+        labelRect.origin.y = verticalSpacing + 1;
+        labelRect.size.height -= 1;
     }
     self.statusLabel.frame = labelRect;
     self.statusLabel.hidden = !string;
