@@ -191,6 +191,18 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     [self sharedView].maxSupportedWindowLevel = windowLevel;
 }
 
++ (void)setVerticalSpacing:(CGFloat)spacing {
+    [self sharedView].verticalSpacing = spacing;
+}
+
++ (void)setHorizontalSpacing:(CGFloat)spacing {
+    [self sharedView].horizontalSpacing = spacing;
+}
+
++ (void)setProgressLabelSpacing:(CGFloat)spacing {
+    [self sharedView].progressLabelSpacing = spacing;
+}
+
 #pragma mark - Show Methods
 
 + (void)show {
@@ -383,6 +395,10 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
         
         _maxSupportedWindowLevel = UIWindowLevelNormal;
         
+        _verticalSpacing = 12.0f;
+        _horizontalSpacing = 12.0f;
+        _progressLabelSpacing = 8.0f;
+        
         // Accessibility support
         self.accessibilityIdentifier = @"SVProgressHUD";
         self.accessibilityLabel = @"SVProgressHUD";
@@ -400,9 +416,9 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     CGFloat hudHeight = 0.0f;
     CGRect labelRect = CGRectZero;
     
-    CGFloat verticalSpacing = 12.0f; // |-12-content-(8-label-)12-|
-    CGFloat horizontalSpacing = 12.0f; // |-12-content-12-|
-    CGFloat progressLabelSpacing = 8.0f; // content-8-label; progess = spinner or image
+    CGFloat verticalSpacing = self.verticalSpacing; // |-verticalSpacing-content-(progressLabelSpacing-label-)verticalSpacing-|
+    CGFloat horizontalSpacing = self.horizontalSpacing; // |-horizontalSpacing-content-horizontalSpacing-|
+    CGFloat progressLabelSpacing = self.progressLabelSpacing; // content-progressLabelSpacing-label; progess = spinner or image
     
     // Check if an image or progress ring is displayed
     BOOL imageUsed = (self.imageView.image) && !(self.imageView.hidden);
@@ -1431,6 +1447,18 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
 
 - (void)setMaxSupportedWindowLevel:(UIWindowLevel)maxSupportedWindowLevel {
     if (!_isInitializing) _maxSupportedWindowLevel = maxSupportedWindowLevel;
+}
+
+- (void)setVerticalSpacing:(CGFloat)verticalSpacing {
+    if (!_isInitializing) _verticalSpacing = verticalSpacing;
+}
+
+- (void)setHorizontalSpacing:(CGFloat)horizontalSpacing {
+    if (!_isInitializing) _horizontalSpacing = horizontalSpacing;
+}
+
+- (void)setProgressLabelSpacing:(CGFloat)progressLabelSpacing {
+    if (!_isInitializing) _progressLabelSpacing = progressLabelSpacing;
 }
 
 @end

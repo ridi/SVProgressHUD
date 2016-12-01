@@ -74,6 +74,10 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 
 @property (assign, nonatomic) UIWindowLevel maxSupportedWindowLevel; // default is UIWindowLevelNormal
 
+@property (assign, nonatomic) CGFloat verticalSpacing UI_APPEARANCE_SELECTOR;      // default is 12 pt
+@property (assign, nonatomic) CGFloat horizontalSpacing UI_APPEARANCE_SELECTOR;    // default is 12 pt
+@property (assign, nonatomic) CGFloat progressLabelSpacing UI_APPEARANCE_SELECTOR; // default is 8 pt
+
 + (void)setDefaultStyle:(SVProgressHUDStyle)style;                  // default is SVProgressHUDStyleLight
 + (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType;         // default is SVProgressHUDMaskTypeNone
 + (void)setDefaultAnimationType:(SVProgressHUDAnimationType)type;   // default is SVProgressHUDAnimationTypeFlat
@@ -94,6 +98,9 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 + (void)setFadeInAnimationDuration:(NSTimeInterval)duration;        // default is 0.15 seconds
 + (void)setFadeOutAnimationDuration:(NSTimeInterval)duration;       // default is 0.15 seconds
 + (void)setMaxSupportedWindowLevel:(UIWindowLevel)windowLevel;      // default is UIWindowLevelNormal
++ (void)setVerticalSpacing:(CGFloat)spacing;                        // default is 12 pt
++ (void)setHorizontalSpacing:(CGFloat)spacing;                      // default is 12 pt
++ (void)setProgressLabelSpacing:(CGFloat)spacing;                   // default is 8 pt
 
 #pragma mark - Show Methods
 
