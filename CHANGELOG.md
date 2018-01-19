@@ -1,3 +1,29 @@
+## 2.2.2
+* Rollback of popActivity #824
+
+## Version 2.2
+* Update project to AutoLayout (finally)
+* Added grace time #556
+* New Fade in / Fade out animation #703, #757, #776, #779, #791, #793, #798, #800
+* Remove vibrancy for better readability on iOS 11 (and below)
+
+## Version 2.1.3
+* Fixed: Background resize #709
+* Update year to 2017
+
+## Version 2.1.2
+* Fixed: Status message goes offscreen #699
+* Fixed: HUD customization behaving unexpectedly #700
+
+## Version 2.1.1
+* Fixed: dismissWithDelay #647, #649, #594, #591, #662
+
+## Version 2.1
+* New: Implicitly set default style to custom when setting colors #692
+* New: Add HUD to UIView instead of UIWindow #685
+* Fixed: UIVisualEffectViews transition error #680
+* Fixed: Minimum size #697, #674, #359
+
 ## Version 2.0.4
 * New: Allow to set max allowed window level #607
 * New: Add completion block to dismiss methods
