@@ -414,6 +414,8 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15f;
         _successImage = [successImage imageWithRenderingMode:renderingMode];
         _errorImage = [errorImage imageWithRenderingMode:renderingMode];
 
+        _shouldTintImages = YES;
+
         _ringThickness = 2.0f;
         _ringRadius = 18.0f;
         _ringNoTextRadius = 24.0f;
