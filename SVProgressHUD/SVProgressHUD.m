@@ -1386,7 +1386,9 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15f;
                 for (__strong UIView *possibleKeyboardSubview in possibleKeyboard.subviews) {
                     viewName = NSStringFromClass(possibleKeyboardSubview.class);
                     if([viewName hasPrefix:@"UI"] && [viewName hasSuffix:@"InputSetHostView"]) {
-                        return CGRectGetHeight(possibleKeyboardSubview.bounds);
+                        if (possibleKeyboard.frame.size.height > 0 && possibleKeyboard.frame.size.height != self.frame.size.height) {
+                            return CGRectGetHeight(possibleKeyboardSubview.bounds);
+                        }
                     }
                 }
             }
